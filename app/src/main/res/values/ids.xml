@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item name="only_empty_view" type="id" />
+    <item name="only_error_view" type="id" />
+
+</resources>
