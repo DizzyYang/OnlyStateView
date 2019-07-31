@@ -2,6 +2,9 @@ package dizzy.only.state;
 
 import android.content.Context;
 import android.os.Build;
+import android.support.annotation.IdRes;
+import android.support.annotation.LayoutRes;
+import android.support.annotation.StringRes;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -50,7 +53,7 @@ public class OnlyStateView extends FrameLayout {
         mLayoutParams = new ViewGroup.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
     }
 
-    public void setLoadingView(int loadingViewId) {
+    public void setLoadingView(@LayoutRes int loadingViewId) {
         if (mLoadingView == null && loadingViewId != 0) {
             mLoadingView = mLayoutInflater.inflate(loadingViewId, null);
             mLoadingView.setVisibility(View.GONE);
@@ -58,7 +61,7 @@ public class OnlyStateView extends FrameLayout {
         }
     }
 
-    public void setContentView(int contentViewId) {
+    public void setContentView(@LayoutRes int contentViewId) {
         if (mContentView == null && contentViewId != 0) {
             mContentView = mLayoutInflater.inflate(contentViewId, null);
             mContentView.setVisibility(View.GONE);
@@ -84,7 +87,7 @@ public class OnlyStateView extends FrameLayout {
         }
     }
 
-    public void setEmptyView(int emptyViewId) {
+    public void setEmptyView(@LayoutRes int emptyViewId) {
         if (mEmptyView == null && emptyViewId != 0) {
             mEmptyView = mLayoutInflater.inflate(emptyViewId, null);
             mEmptyView.setVisibility(View.GONE);
@@ -110,7 +113,7 @@ public class OnlyStateView extends FrameLayout {
         }
     }
 
-    public void setErrorView(int errorViewId) {
+    public void setErrorView(@LayoutRes int errorViewId) {
         if (mErrorView == null && errorViewId != 0) {
             mErrorView = mLayoutInflater.inflate(errorViewId, null);
             mErrorView.setVisibility(View.GONE);
@@ -148,11 +151,11 @@ public class OnlyStateView extends FrameLayout {
         showStateView(EMPTY);
     }
 
-    public void showEmpty(int id, int stringId) {
+    public void showEmpty(@IdRes int id, @StringRes int stringId) {
         showEmpty(id, mContext.getString(stringId));
     }
 
-    public void showEmpty(int id, String string) {
+    public void showEmpty(@IdRes int id, String string) {
         View view = mEmptyView.findViewById(id);
         if (view != null) {
             if (view instanceof TextView) {
@@ -166,11 +169,11 @@ public class OnlyStateView extends FrameLayout {
         showStateView(ERROR);
     }
 
-    public void showError(int id, int stringId) {
+    public void showError(@IdRes int id, @StringRes int stringId) {
         showError(id, mContext.getString(stringId));
     }
 
-    public void showError(int id, String string) {
+    public void showError(@IdRes int id, String string) {
         View view = mErrorView.findViewById(id);
         if (view != null) {
             if (view instanceof TextView) {
